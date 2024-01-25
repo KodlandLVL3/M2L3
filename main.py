@@ -4,12 +4,10 @@ from config import token
 # Задание 7 - испортируй команду defaultdict
 from logic import quiz_questions
 
-TELEGRAM_TOKEN = token
-
 user_responses = {} 
 # Задание 8 - создай словарь points для сохранения количества очков пользователя
 
-bot = telebot.TeleBot(TELEGRAM_TOKEN)
+bot = telebot.TeleBot(token)
 
 def send_question(chat_id):
     bot.send_message(chat_id, quiz_questions[user_responses[chat_id]].text, reply_markup=quiz_questions[user_responses[chat_id]].gen_markup())
